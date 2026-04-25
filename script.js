@@ -52,23 +52,21 @@ function shakeScreen(intensity = 10, durationMs = 500) {
 }
 
 startBtn.addEventListener('click', async () => {
-    // Hide UI
     ui.style.display = 'none';
 
-    // Set initial positions & classes
+    // Set initial positions
     wenda.style.left = '15%';
     gray.style.right = '15%';
-    wenda.style.bottom = '30%';
-    gray.style.bottom = '30%';
+    wenda.style.bottom = '25%';
+    gray.style.bottom = '25%';
     wenda.classList.add('anim-idle');
     gray.classList.add('anim-idle');
     
     // Phase 1: Intro
-    scene.style.transform = 'scale(1.2) translateY(5%)';
+    scene.style.transform = 'scale(1.1) translateY(5%)';
     scene.style.transition = 'transform 3s ease-in-out';
     await sleep(2000);
 
-    // Dialogue 1
     await typeSubtitle("Wenda: Yetersizsin, Gray.", "#ffffff", 2000);
     
     scene.style.transform = 'scale(1.2) translateX(-5%) translateY(5%)';
@@ -77,81 +75,90 @@ startBtn.addEventListener('click', async () => {
     scene.style.transform = 'scale(1) translateX(0) translateY(0)';
     await sleep(1000);
 
-    // Phase 2: Brutal Beatdown by Wenda
+    // Phase 2: Brutal Realistic Beatdown by Wenda
     wenda.classList.remove('anim-idle');
     gray.classList.remove('anim-idle');
     
-    wenda.style.transition = 'left 0.1s ease-in';
-    gray.style.transition = 'right 0.2s ease-out';
+    wenda.style.transition = 'left 0.2s ease-in';
+    gray.style.transition = 'right 0.2s ease-out, transform 0.1s';
     
     await typeSubtitle("Wenda: YOK OL!", "#ffffff", 1000);
 
-    // Flurry of punches
-    for(let i=0; i<15; i++) {
-        // Wenda teleports close to Gray
-        let hitX = 30 + Math.random() * 20; // Wenda moves right
-        wenda.style.left = hitX + '%';
-        wenda.style.bottom = (25 + Math.random()*15) + '%';
+    // Wenda walks/dashes close
+    wenda.style.left = '40%';
+    gray.style.right = '40%';
+    await sleep(300);
+
+    // Flurry of realistic punches
+    for(let i=0; i<10; i++) {
+        let isRightArm = i % 2 === 0;
+        let armClass = isRightArm ? '.arm.right' : '.arm.left';
+        let arm = wenda.querySelector(armClass);
         
-        // Gray gets pushed back
-        let gRight = parseInt(gray.style.right || '15');
+        // Punch extension (rotate arm 90deg to point forward)
+        arm.style.transform = `rotate(-90deg) scaleY(1.3)`;
+        
+        // Push Gray back a bit and make him stagger
+        let gRight = parseInt(gray.style.right || '40');
         gray.style.right = (gRight - 2) + '%';
-        gray.style.bottom = (25 + Math.random()*15) + '%';
-        
-        // Punch animations
-        let hand = (i%2 === 0) ? '.hand.right' : '.hand.left';
-        wenda.querySelector(hand).style.transform = `translate(80px, ${Math.random()*40 - 20}px) scale(1.5)`;
+        gray.style.transform = `scaleX(-1) rotate(${10 + Math.random()*15}deg)`; // stagger backward
         
         shakeScreen(15, 100);
-        clashEffect.style.left = '60%';
-        clashEffect.style.top = (100 - parseInt(gray.style.bottom)) + '%';
+        
+        // Clash effect at the impact point (Gray's chest/face area)
+        clashEffect.style.left = '55%';
+        clashEffect.style.top = '40%';
         clashEffect.style.opacity = '0.8';
         clashEffect.style.transform = `translate(-50%, -50%) scale(${1 + Math.random()})`;
         
-        await sleep(100);
+        await sleep(120);
         
-        wenda.querySelector(hand).style.transform = '';
+        // Pull arm back
+        arm.style.transform = 'rotate(20deg)';
+        clashEffect.style.opacity = '0';
+        
+        await sleep(80);
     }
     
-    clashEffect.style.opacity = '0';
-    
-    // Final heavy blow by Wenda
-    wenda.querySelector('.hand.right').style.transform = 'translate(100px, -50px) scale(3)';
+    // Final heavy punch
+    wenda.querySelector('.arm.right').style.transition = 'transform 0.2s ease-in';
+    wenda.querySelector('.arm.right').style.transform = 'rotate(180deg)'; // wind up
     await sleep(200);
+    wenda.querySelector('.arm.right').style.transform = 'rotate(-90deg) scaleY(1.5)'; // BAM
     
     shakeScreen(30, 500);
     flash.style.opacity = '1';
     await sleep(50);
     flash.style.opacity = '0';
     
-    gray.style.transition = 'all 1s cubic-bezier(0.1, 0.9, 0.2, 1)';
-    gray.style.right = '-10%';
-    gray.style.bottom = '10%'; // Falls to ground
-    gray.style.transform = 'scaleX(-1) rotate(-90deg)'; // Lying down
+    // Gray is knocked out
+    gray.style.transition = 'all 0.8s cubic-bezier(0.1, 0.9, 0.2, 1)';
+    gray.style.right = '-5%';
+    gray.style.bottom = '5%'; 
+    gray.style.transform = 'scaleX(-1) rotate(-90deg)'; // Falls flat
     
     wenda.style.transition = 'all 0.5s ease';
-    wenda.style.left = '20%';
-    wenda.style.bottom = '30%';
+    wenda.querySelector('.arm.right').style.transform = '';
+    wenda.querySelector('.arm.left').style.transform = '';
     wenda.classList.add('anim-idle');
-    wenda.querySelector('.hand.right').style.transform = '';
 
     await sleep(2000);
 
-    // Phase 3: Wenda's arrogance
+    // Phase 3: Arrogance
     await typeSubtitle("Wenda: Fazla kolaydı...", "#ffffff", 2500);
     
     // Phase 4: The Scary Transformation
     await sleep(1000);
-    darkness.style.opacity = '1'; // Red/black overlay fades in
-    shakeScreen(2, 3000); // Low rumble
+    darkness.style.opacity = '1'; 
+    shakeScreen(2, 3000); 
     
     await typeSubtitle("Gray: ...", "#ff0000", 2000);
     
-    // Snap into scary mode
-    gray.style.transition = 'none'; // Instant snap
+    // Instant snap to Scary Mode
+    gray.style.transition = 'none'; 
     gray.style.transform = 'scaleX(-1) rotate(0deg)'; // Stands up instantly
     gray.style.right = '10%';
-    gray.style.bottom = '30%';
+    gray.style.bottom = '25%';
     
     gray.classList.add('scary-mode');
     
@@ -164,37 +171,41 @@ startBtn.addEventListener('click', async () => {
 
     await typeSubtitle("Gray: K  A  N . . .", "#880000", 2000);
     
-    // Phase 5: The Scary Kill
+    // Phase 5: The Kill
     wenda.classList.remove('anim-idle');
     await sleep(1000);
     
-    // Gray teleports/dashes instantly
+    // Gray lunges instantly
     gray.style.transition = 'right 0.1s linear';
     gray.style.right = '60%'; // Right in front of Wenda
     
-    gray.querySelector('.hand.left').style.transform = 'translate(-60px, -80px) scale(2)';
-    gray.querySelector('.hand.right').style.transform = 'translate(-60px, -80px) scale(2)';
+    // Gray raises arms for a brutal downward smash
+    gray.querySelector('.arm.left').style.transform = 'rotate(-180deg) scaleY(1.5)';
+    gray.querySelector('.arm.right').style.transform = 'rotate(180deg) scaleY(1.5)';
     
     await sleep(100);
     
-    // Smash Wenda
-    shakeScreen(40, 1000);
+    // Smash down!
+    gray.querySelector('.arm.left').style.transform = 'rotate(-30deg) scaleY(1.5)';
+    gray.querySelector('.arm.right').style.transform = 'rotate(30deg) scaleY(1.5)';
+    
+    shakeScreen(50, 1000);
     bloodExplosion.style.opacity = '1';
     bloodExplosion.style.left = '25%';
-    bloodExplosion.style.transform = 'translate(-50%, -50%) scale(5)';
-    bloodExplosion.style.transition = 'transform 0.5s ease-out, opacity 1.5s';
+    bloodExplosion.style.transform = 'translate(-50%, -50%) scale(3)';
+    bloodExplosion.style.transition = 'transform 0.3s ease-out, opacity 1.5s';
     
     wenda.style.transition = 'all 0.5s ease-out';
-    wenda.style.left = '-30%'; // Blown away completely
-    wenda.style.bottom = '60%';
+    wenda.style.left = '-30%'; 
+    wenda.style.bottom = '80%';
     wenda.style.transform = 'rotate(-180deg)';
 
     await sleep(1500);
     bloodExplosion.style.opacity = '0';
     darkness.style.opacity = '0';
     
-    gray.querySelector('.hand.left').style.transform = '';
-    gray.querySelector('.hand.right').style.transform = '';
+    gray.querySelector('.arm.left').style.transform = '';
+    gray.querySelector('.arm.right').style.transform = '';
 
     await sleep(2000);
 

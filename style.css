@@ -106,234 +106,240 @@ body {
     100% { transform: translateX(-50%); }
 }
 
-/* Characters Base - Ball Design */
+/* Base Character Layout (Sprunki Style) */
 .character {
     position: absolute;
-    bottom: 30%;
-    width: 180px;
-    height: 180px;
+    bottom: 25%;
+    width: 140px;
+    height: 280px; /* Tall figure */
     z-index: 10;
-    filter: drop-shadow(0 30px 20px rgba(0,0,0,0.9));
+    filter: drop-shadow(0 30px 20px rgba(0,0,0,0.8));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.ball {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    z-index: 2;
-    box-shadow: inset -10px -10px 20px rgba(0,0,0,0.5);
-    transition: all 0.5s;
-}
-
-.hand {
+.body {
     position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    z-index: 3;
-    box-shadow: inset -5px -5px 10px rgba(0,0,0,0.5), 0 10px 10px rgba(0,0,0,0.5);
-    transition: all 0.1s; /* Faster for punches */
+    bottom: 0;
+    width: 90px;
+    height: 170px;
+    border-radius: 40px 40px 10px 10px;
+    z-index: 2;
+    transition: all 0.3s;
 }
 
-/* Wenda (White) Styling */
+.head {
+    position: absolute;
+    top: 0;
+    width: 140px;
+    height: 120px;
+    border-radius: 50%;
+    z-index: 4;
+    transition: all 0.3s;
+}
+
+.arm {
+    position: absolute;
+    top: 130px;
+    width: 30px;
+    height: 120px;
+    border-radius: 15px;
+    transform-origin: top center;
+    z-index: 5;
+    transition: transform 0.1s; /* Fast for punches */
+}
+.arm.left { left: 5px; }
+.arm.right { right: 5px; }
+
+/* Wenda (White Cat-like) */
 .wenda {
     left: 15%;
 }
-.wenda .ball { background: #f0f0f0; }
-.wenda .hand { background: #f0f0f0; }
+.wenda .body { background: #f5f5f5; box-shadow: inset -10px 0 20px rgba(0,0,0,0.2); }
+.wenda .head { background: #f5f5f5; box-shadow: inset -10px -10px 20px rgba(0,0,0,0.2); }
+.wenda .arm { background: #f5f5f5; box-shadow: inset -5px -5px 10px rgba(0,0,0,0.2); }
+
 .wenda .ear {
     position: absolute;
-    top: -30px;
+    top: -25px;
     width: 0;
     height: 0;
-    border-left: 30px solid transparent;
-    border-right: 30px solid transparent;
-    border-bottom: 60px solid #f0f0f0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 50px solid #f5f5f5;
 }
-.wenda .ear.left { left: 0; transform: rotate(-30deg); }
-.wenda .ear.right { right: 0; transform: rotate(30deg); }
+.wenda .ear.left { left: 10px; transform: rotate(-20deg); }
+.wenda .ear.right { right: 10px; transform: rotate(20deg); }
 
 .wenda .eye {
     position: absolute;
-    top: 50px;
-    width: 45px;
-    height: 45px;
-    background: #fff;
+    top: 40px;
+    width: 25px;
+    height: 35px;
+    background: #000;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid #ccc;
 }
-.wenda .eye.left { left: 30px; }
-.wenda .eye.right { right: 30px; }
-
-.wenda .pupil { color: #000; font-size: 20px; font-weight: bold; }
-
-.wenda .hand.left { left: -30px; top: 80px; }
-.wenda .hand.right { right: -30px; top: 80px; }
+.wenda .eye.left { left: 35px; }
+.wenda .eye.right { right: 35px; }
 
 .wenda .mouth {
     position: absolute;
     bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
-    height: 35px;
-    background: #111;
-    border-radius: 10px 10px 60px 60px;
-    border: 2px solid #000;
-    overflow: hidden;
-}
-.wenda .mouth::before, .wenda .mouth::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
+    width: 30px;
     height: 15px;
-    background: repeating-linear-gradient(90deg, #fff, #fff 5px, #111 5px, #111 8px);
+    background: #000;
+    border-radius: 0 0 15px 15px;
 }
-.wenda .mouth::before { top: -5px; }
-.wenda .mouth::after { bottom: -5px; }
 
-/* Gray (Gray) Styling */
+/* Gray (Tall Dark Gray Figure) */
 .gray {
     right: 15%;
     transform: scaleX(-1);
 }
-.gray .ball { background: #4a4a4a; }
-.gray .hand { background: #4a4a4a; }
-.normal-face .ear {
-    position: absolute;
-    top: -30px;
-    width: 0;
-    height: 0;
-    border-left: 30px solid transparent;
-    border-right: 30px solid transparent;
-    border-bottom: 60px solid #4a4a4a;
-}
-.normal-face .ear.left { left: 0; transform: rotate(-30deg); }
-.normal-face .ear.right { right: 0; transform: rotate(30deg); }
+.gray .body { background: #4a4a4a; box-shadow: inset -10px 0 20px rgba(0,0,0,0.5); }
+.gray .head { background: #4a4a4a; box-shadow: inset -10px -10px 20px rgba(0,0,0,0.5); }
+.gray .arm { background: #4a4a4a; box-shadow: inset -5px -5px 10px rgba(0,0,0,0.5); z-index: 1;}
 
 .normal-face .eye {
     position: absolute;
-    top: 50px;
-    width: 45px;
-    height: 45px;
-    background: #6a6a70;
+    top: 40px;
+    width: 30px;
+    height: 30px;
+    background: #111;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid #222;
 }
 .normal-face .eye.left { left: 30px; }
 .normal-face .eye.right { right: 30px; }
 
-.normal-face .pupil { width: 15px; height: 15px; background: #111; border-radius: 50%; }
-.normal-face .bag { position: absolute; bottom: -8px; width: 100%; height: 12px; background: rgba(15, 59, 59, 0.6); border-radius: 50%; filter: blur(2px); }
-.normal-face .mouth-sad { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); width: 40px; height: 10px; border-top: 4px solid #111; border-radius: 50%; }
+.normal-face .mouth-sad {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 10px;
+    border-top: 4px solid #111;
+    border-radius: 50%;
+}
 
-.gray .hand.left { left: -30px; top: 80px; }
-.gray .hand.right { right: -30px; top: 80px; }
-
-/* SCARY MODE TRANSFORMATION */
+/* GRAY SCARY MODE (MATCHING THE IMAGE) */
 .scary-face {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.5s;
+    transition: opacity 0.3s;
 }
 
 .scary-jaw {
     position: absolute;
-    bottom: -60px;
-    left: 20px;
-    width: 140px;
-    height: 40px;
-    background: #333; /* Darker detached jaw */
-    border-radius: 0 0 70px 70px;
+    bottom: -10px;
+    left: 15px;
+    width: 110px;
+    height: 30px;
+    background: #333;
+    border-radius: 0 0 55px 55px;
     opacity: 0;
-    transition: opacity 0.5s, bottom 0.2s;
-    z-index: 1;
+    transition: opacity 0.3s, bottom 0.2s;
+    z-index: 3;
     box-shadow: inset -5px -5px 15px rgba(0,0,0,0.8);
 }
 
 .gray.scary-mode .normal-face { opacity: 0; }
 .gray.scary-mode .scary-face { opacity: 1; }
-.gray.scary-mode .scary-jaw { opacity: 1; bottom: -40px; animation: jawVibrate 0.1s infinite; }
-.gray.scary-mode .ball { background: #333; clip-path: polygon(0 0, 45% 0, 50% 20%, 55% 0, 100% 0, 100% 85%, 0 85%); border-radius: 50% 50% 0 0; }
-.gray.scary-mode .hand { background: #222; box-shadow: 0 0 15px #800; }
+.gray.scary-mode .scary-jaw { opacity: 1; bottom: -45px; animation: jawVibrate 0.1s infinite; }
+.gray.scary-mode .head { background: #333; clip-path: polygon(0 0, 45% 0, 50% 20%, 55% 0, 100% 0, 100% 80%, 0 80%); border-radius: 50% 50% 0 0; }
+.gray.scary-mode .body { background: #333; }
+.gray.scary-mode .arm { background: #222; }
+.gray.scary-mode .body-blood { opacity: 1; }
 
+/* The crack on top of head */
 .crack {
     position: absolute;
     top: 0;
     left: 45%;
-    width: 20px;
-    height: 60px;
-    background: #111;
+    width: 15px;
+    height: 50px;
+    background: #000;
     clip-path: polygon(0 0, 100% 0, 60% 30%, 100% 60%, 20% 100%, 40% 60%, 0 30%);
 }
 
+/* Big black bloody eyes */
 .scary-eye {
     position: absolute;
-    top: 40px;
-    width: 60px;
-    height: 60px;
+    top: 30px;
+    width: 50px;
+    height: 50px;
     background: #000;
     border-radius: 50%;
-    box-shadow: 0 0 20px #000;
 }
-.scary-eye.left { left: 20px; }
-.scary-eye.right { right: 20px; }
+.scary-eye.left { left: 15px; }
+.scary-eye.right { right: 15px; }
 
+/* Blood dripping from eyes */
 .blood-tear {
     position: absolute;
-    bottom: -30px;
-    left: 20px;
-    width: 10px;
-    height: 40px;
+    bottom: -25px;
+    left: 10px;
+    width: 8px;
+    height: 35px;
     background: #700;
-    border-radius: 5px;
+    border-radius: 4px;
 }
-.blood-tear.t2 { left: 40px; height: 25px; bottom: -15px; }
+.blood-tear.t2 { left: 30px; height: 20px; bottom: -15px; }
 
+/* Scary teeth on top and bottom jaw */
 .scary-teeth {
     position: absolute;
     width: 100%;
     height: 15px;
-    background: repeating-linear-gradient(90deg, transparent, transparent 5px, #888 5px, #aaa 10px);
+    background: repeating-linear-gradient(90deg, transparent, transparent 4px, #aaa 4px, #ccc 8px);
     clip-path: polygon(0 0, 10% 100%, 20% 0, 30% 100%, 40% 0, 50% 100%, 60% 0, 70% 100%, 80% 0, 90% 100%, 100% 0);
 }
 .scary-teeth.top { bottom: 0; left: 0; transform: scaleY(-1); }
 .scary-teeth.bottom { top: -10px; left: 0; }
 
+/* Blood dripping down the tall neck/body */
+.body-blood {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 12px;
+    height: 100px;
+    background: #700;
+    border-radius: 0 0 6px 6px;
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 3;
+}
+.body-blood.b2 { left: 50px; height: 140px; }
+
 .jaw-blood {
     position: absolute;
-    bottom: -80px;
-    width: 15px;
-    height: 90px;
-    background: #500;
+    bottom: -40px;
+    width: 10px;
+    height: 50px;
+    background: #700;
     border-radius: 5px;
 }
-.jaw-blood.b2 { left: 50px; height: 120px; bottom: -110px; }
-.jaw-blood.b3 { right: 20px; height: 70px; bottom: -60px; }
+.jaw-blood.b2 { left: 40px; height: 80px; bottom: -70px; }
 
 @keyframes jawVibrate {
     0% { transform: translateY(0); }
-    100% { transform: translateY(5px); }
+    100% { transform: translateY(3px); }
 }
 
-/* Animations */
-.anim-idle .ball { animation: float 3s infinite alternate ease-in-out; }
-.anim-idle .hand.left { animation: floatHandL 2.5s infinite alternate ease-in-out; }
-.anim-idle .hand.right { animation: floatHandR 3.5s infinite alternate ease-in-out; }
+/* Idle Animations */
+.anim-idle { animation: breatheBody 2s infinite alternate ease-in-out; }
+.anim-idle .arm.left { animation: armIdleL 2s infinite alternate ease-in-out; }
+.anim-idle .arm.right { animation: armIdleR 2s infinite alternate ease-in-out; }
 
-@keyframes float { 0% { transform: translateY(0); } 100% { transform: translateY(-15px); } }
-@keyframes floatHandL { 0% { transform: translate(0, 0); } 100% { transform: translate(-5px, -20px); } }
-@keyframes floatHandR { 0% { transform: translate(0, 0); } 100% { transform: translate(5px, -15px); } }
+@keyframes breatheBody { 0% { transform: scaleY(1); } 100% { transform: scaleY(1.02) translateY(-5px); } }
+@keyframes armIdleL { 0% { transform: rotate(10deg); } 100% { transform: rotate(15deg); } }
+@keyframes armIdleR { 0% { transform: rotate(-10deg); } 100% { transform: rotate(-15deg); } }
 
 /* Subtitles */
 .subtitles {
@@ -422,9 +428,9 @@ button:hover { background: #fff; color: #000; box-shadow: 0 0 20px #fff; }
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%) scale(0);
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, #700 10%, transparent 70%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #800 10%, transparent 70%);
     border-radius: 50%;
     z-index: 100;
     opacity: 0;

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nigmare vs The Dark One - Cinematic Fight</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cinema-container">
+        <div class="letterbox top"></div>
+        
+        <div class="scene" id="scene">
+            <div class="background">
+                <div class="moon"></div>
+                <div class="fog"></div>
+                <div class="fog layer2"></div>
+            </div>
+
+            <!-- Nigmare -->
+            <div class="character nigmare" id="nigmare">
+                <div class="head">
+                    <div class="ear left"></div>
+                    <div class="ear right"></div>
+                    <div class="eye left"><div class="pupil">c</div></div>
+                    <div class="eye right"><div class="pupil">c</div></div>
+                    <div class="mouth"></div>
+                    <div class="blood-splatter b1"></div>
+                    <div class="blood-splatter b2"></div>
+                </div>
+                <div class="body">
+                    <div class="blood-splatter b3"></div>
+                    <div class="blood-splatter b4"></div>
+                    <div class="arm left"></div>
+                    <div class="arm right"></div>
+                </div>
+            </div>
+
+            <!-- Other Character -->
+            <div class="character dark-one" id="darkOne">
+                <div class="head">
+                    <div class="ear left"></div>
+                    <div class="ear right"></div>
+                    <div class="eye left"><div class="pupil"></div><div class="bag"></div></div>
+                    <div class="eye right"><div class="pupil"></div><div class="bag"></div></div>
+                    <div class="mouth-sad"></div>
+                </div>
+                <div class="body">
+                    <div class="arm left"></div>
+                    <div class="arm right"></div>
+                </div>
+            </div>
+
+            <!-- Effects -->
+            <div class="impact-flash" id="flash"></div>
+            <div class="particles" id="particles"></div>
+        </div>
+
+        <div class="letterbox bottom"></div>
+        
+        <div class="ui">
+            <button id="startBtn">FİLMİ BAŞLAT</button>
+        </div>
+        
+        <div class="titles" id="titles">
+            <h1 id="titleText">NIGMARE</h1>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

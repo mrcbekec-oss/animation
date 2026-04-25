@@ -112,6 +112,7 @@ body {
 .head-blood { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at center, transparent 40%, rgba(136,0,0,0.5) 100%); border-radius: 50%; pointer-events: none; }
 
 .wenda.scary-mode .normal-face { opacity: 0; }
+.wenda.scary-mode { filter: drop-shadow(0 0 40px #f00); }
 .wenda.scary-mode .scary-face { opacity: 1; }
 .wenda.scary-mode .head { background: #222; transform: translateY(-70px); box-shadow: 0 10px 20px rgba(0,0,0,0.8); animation: headBob 0.5s infinite alternate; }
 .wenda.scary-mode .body { background: #222; }

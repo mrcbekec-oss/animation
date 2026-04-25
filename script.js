@@ -127,7 +127,7 @@ startBtn.addEventListener('click', async () => {
     
     shakeScreen(50, 1000); bloodExplosion.style.opacity = '1'; bloodExplosion.style.left = '25%'; bloodExplosion.style.transform = 'translate(-50%, -50%) scale(3)'; bloodExplosion.style.transition = 'transform 0.3s ease-out, opacity 1.5s';
     
-    wenda.style.transition = 'all 0.5s ease-out'; wenda.style.left = '-20%'; wenda.style.bottom = '10%'; wenda.style.transform = 'rotate(-90deg)'; // Falls instead of flying away completely
+    wenda.style.transition = 'all 0.5s ease-out'; wenda.style.left = '-5%'; wenda.style.bottom = '10%'; wenda.style.transform = 'rotate(-90deg)'; // Falls instead of flying away completely
 
     await sleep(1500); bloodExplosion.style.opacity = '0'; gray.querySelector('.arm.left').style.transform = ''; gray.querySelector('.arm.right').style.transform = '';
     await sleep(2000);
@@ -138,8 +138,10 @@ startBtn.addEventListener('click', async () => {
     
     await typeSubtitle("Wenda: Ö L Ü M ! ! !", "#fff", 2500);
 
-    wenda.style.transition = 'none';
-    wenda.style.transform = 'rotate(0deg)'; // Stands up instantly
+    wenda.style.transition = 'all 2s ease-out';
+    wenda.style.transform = 'rotate(0deg)'; // Stands up
+    wenda.style.left = '20%'; // Bring her back into full view
+    wenda.style.bottom = '30%';
     wenda.classList.add('scary-mode');
     
     shakeScreen(30, 500);

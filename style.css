@@ -1,8 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     background-color: #000;
@@ -14,240 +10,64 @@ body {
     height: 100vh;
 }
 
-.cinema-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    background: #000;
-    overflow: hidden;
-    perspective: 1000px;
-}
+.cinema-container { position: relative; width: 100vw; height: 100vh; background: #000; overflow: hidden; perspective: 1000px; }
 
-.letterbox {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 12vh;
-    background: #000;
-    z-index: 200;
-    transition: height 2s ease;
-}
+.letterbox { position: absolute; left: 0; width: 100%; height: 12vh; background: #000; z-index: 200; transition: height 2s ease; }
 .letterbox.top { top: 0; }
 .letterbox.bottom { bottom: 0; }
 
-.scene {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform-origin: center center;
-    transition: transform 0.1s;
-}
+.scene { position: absolute; top: 0; left: 0; width: 100%; height: 100%; transform-origin: center center; transition: transform 0.1s; }
 
-.background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, #1a0b1c 0%, #0d0614 100%);
-    z-index: 1;
-}
+.background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, #1a0b1c 0%, #0d0614 100%); z-index: 1; }
 
 .darkness-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: radial-gradient(circle, transparent, #3a0000 80%, #000 100%);
-    opacity: 0;
-    z-index: 2;
-    transition: opacity 2s;
-    pointer-events: none;
+    opacity: 0; z-index: 2; transition: opacity 2s; pointer-events: none;
 }
+.darkness-overlay.super { background: radial-gradient(circle, transparent, #000000 70%, #000 100%); z-index: 3; }
 
-.moon {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, #fff 10%, #ffaaaa 40%, transparent 70%);
-    border-radius: 50%;
-    opacity: 0.3;
-    box-shadow: 0 0 100px #ff0000;
-}
+.moon { position: absolute; top: 20%; left: 50%; transform: translateX(-50%); width: 300px; height: 300px; background: radial-gradient(circle, #fff 10%, #ffaaaa 40%, transparent 70%); border-radius: 50%; opacity: 0.3; box-shadow: 0 0 100px #ff0000; }
 
-.fog {
-    position: absolute;
-    bottom: -10%;
-    left: -50%;
-    width: 200%;
-    height: 60%;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><path fill="%23ffffff" fill-opacity="0.1" d="M0,100 C200,200 400,0 600,100 C800,200 1000,0 1000,100 L1000,200 L0,200 Z"></path></svg>') repeat-x;
-    background-size: 50% 100%;
-    animation: fogMove 20s linear infinite;
-    z-index: 3;
-    filter: blur(10px);
-}
-.fog.layer2 {
-    bottom: -5%;
-    opacity: 0.5;
-    animation: fogMove 15s linear infinite reverse;
-    transform: scale(1.5);
-    z-index: 4;
-}
+.fog { position: absolute; bottom: -10%; left: -50%; width: 200%; height: 60%; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><path fill="%23ffffff" fill-opacity="0.1" d="M0,100 C200,200 400,0 600,100 C800,200 1000,0 1000,100 L1000,200 L0,200 Z"></path></svg>') repeat-x; background-size: 50% 100%; animation: fogMove 20s linear infinite; z-index: 3; filter: blur(10px); }
+.fog.layer2 { bottom: -5%; opacity: 0.5; animation: fogMove 15s linear infinite reverse; transform: scale(1.5); z-index: 4; }
 
-@keyframes fogMove {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
+@keyframes fogMove { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-/* Base Character Layout (Sprunki Style) */
-.character {
-    position: absolute;
-    bottom: 25%;
-    width: 140px;
-    height: 280px; /* Tall figure */
-    z-index: 10;
-    filter: drop-shadow(0 30px 20px rgba(0,0,0,0.8));
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+/* Base Character Layout */
+.character { position: absolute; bottom: 25%; width: 140px; height: 280px; z-index: 10; filter: drop-shadow(0 30px 20px rgba(0,0,0,0.8)); display: flex; flex-direction: column; align-items: center; }
 
-.body {
-    position: absolute;
-    bottom: 0;
-    width: 90px;
-    height: 170px;
-    border-radius: 40px 40px 10px 10px;
-    z-index: 2;
-    transition: all 0.3s;
-}
+.body { position: absolute; bottom: 0; width: 90px; height: 170px; border-radius: 40px 40px 10px 10px; z-index: 2; transition: all 0.3s; }
+.head { position: absolute; top: 0; width: 140px; height: 120px; border-radius: 50%; z-index: 4; transition: all 0.3s; }
+.arm { position: absolute; top: 130px; width: 30px; height: 120px; border-radius: 15px; transform-origin: top center; z-index: 5; transition: transform 0.1s; }
+.arm.left { left: 5px; } .arm.right { right: 5px; }
 
-.head {
-    position: absolute;
-    top: 0;
-    width: 140px;
-    height: 120px;
-    border-radius: 50%;
-    z-index: 4;
-    transition: all 0.3s;
-}
-
-.arm {
-    position: absolute;
-    top: 130px;
-    width: 30px;
-    height: 120px;
-    border-radius: 15px;
-    transform-origin: top center;
-    z-index: 5;
-    transition: transform 0.1s; /* Fast for punches */
-}
-.arm.left { left: 5px; }
-.arm.right { right: 5px; }
-
-/* Wenda (White Cat-like) */
-.wenda {
-    left: 15%;
-}
+/* WENDA NORMAL */
+.wenda { left: 15%; }
 .wenda .body { background: #f5f5f5; box-shadow: inset -10px 0 20px rgba(0,0,0,0.2); }
 .wenda .head { background: #f5f5f5; box-shadow: inset -10px -10px 20px rgba(0,0,0,0.2); }
 .wenda .arm { background: #f5f5f5; box-shadow: inset -5px -5px 10px rgba(0,0,0,0.2); }
+.wenda .normal-face .ear { position: absolute; top: -25px; width: 0; height: 0; border-left: 25px solid transparent; border-right: 25px solid transparent; border-bottom: 50px solid #f5f5f5; transition: all 0.3s; }
+.wenda .normal-face .ear.left { left: 10px; transform: rotate(-20deg); }
+.wenda .normal-face .ear.right { right: 10px; transform: rotate(20deg); }
+.wenda .normal-face .eye { position: absolute; top: 40px; width: 25px; height: 35px; background: #000; border-radius: 50%; }
+.wenda .normal-face .eye.left { left: 35px; } .wenda .normal-face .eye.right { right: 35px; }
+.wenda .normal-face .mouth { position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%); width: 30px; height: 15px; background: #000; border-radius: 0 0 15px 15px; }
 
-.wenda .ear {
-    position: absolute;
-    top: -25px;
-    width: 0;
-    height: 0;
-    border-left: 25px solid transparent;
-    border-right: 25px solid transparent;
-    border-bottom: 50px solid #f5f5f5;
-}
-.wenda .ear.left { left: 10px; transform: rotate(-20deg); }
-.wenda .ear.right { right: 10px; transform: rotate(20deg); }
-
-.wenda .eye {
-    position: absolute;
-    top: 40px;
-    width: 25px;
-    height: 35px;
-    background: #000;
-    border-radius: 50%;
-}
-.wenda .eye.left { left: 35px; }
-.wenda .eye.right { right: 35px; }
-
-.wenda .mouth {
-    position: absolute;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30px;
-    height: 15px;
-    background: #000;
-    border-radius: 0 0 15px 15px;
-}
-
-/* Gray (Tall Dark Gray Figure) */
-.gray {
-    right: 15%;
-    transform: scaleX(-1);
-}
+/* GRAY NORMAL */
+.gray { right: 15%; transform: scaleX(-1); }
 .gray .body { background: #4a4a4a; box-shadow: inset -10px 0 20px rgba(0,0,0,0.5); }
 .gray .head { background: #4a4a4a; box-shadow: inset -10px -10px 20px rgba(0,0,0,0.5); }
 .gray .arm { background: #4a4a4a; box-shadow: inset -5px -5px 10px rgba(0,0,0,0.5); z-index: 1;}
+.gray .normal-face .eye { position: absolute; top: 40px; width: 30px; height: 30px; background: #111; border-radius: 50%; }
+.gray .normal-face .eye.left { left: 30px; } .gray .normal-face .eye.right { right: 30px; }
+.gray .normal-face .mouth-sad { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); width: 40px; height: 10px; border-top: 4px solid #111; border-radius: 50%; }
 
-.normal-face .eye {
-    position: absolute;
-    top: 40px;
-    width: 30px;
-    height: 30px;
-    background: #111;
-    border-radius: 50%;
-}
-.normal-face .eye.left { left: 30px; }
-.normal-face .eye.right { right: 30px; }
+/* SCARY FACE COMMON */
+.scary-face { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
 
-.normal-face .mouth-sad {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 10px;
-    border-top: 4px solid #111;
-    border-radius: 50%;
-}
-
-/* GRAY SCARY MODE (MATCHING THE IMAGE) */
-.scary-face {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
-}
-
-.scary-jaw {
-    position: absolute;
-    bottom: -10px;
-    left: 15px;
-    width: 110px;
-    height: 30px;
-    background: #333;
-    border-radius: 0 0 55px 55px;
-    opacity: 0;
-    transition: opacity 0.3s, bottom 0.2s;
-    z-index: 3;
-    box-shadow: inset -5px -5px 15px rgba(0,0,0,0.8);
-}
-
+/* GRAY SCARY MODE */
+.scary-jaw { position: absolute; bottom: -10px; left: 15px; width: 110px; height: 30px; background: #333; border-radius: 0 0 55px 55px; opacity: 0; transition: opacity 0.3s, bottom 0.2s; z-index: 3; box-shadow: inset -5px -5px 15px rgba(0,0,0,0.8); }
 .gray.scary-mode .normal-face { opacity: 0; }
 .gray.scary-mode .scary-face { opacity: 1; }
 .gray.scary-mode .scary-jaw { opacity: 1; bottom: -45px; animation: jawVibrate 0.1s infinite; }
@@ -255,82 +75,53 @@ body {
 .gray.scary-mode .body { background: #333; }
 .gray.scary-mode .arm { background: #222; }
 .gray.scary-mode .body-blood { opacity: 1; }
-
-/* The crack on top of head */
-.crack {
-    position: absolute;
-    top: 0;
-    left: 45%;
-    width: 15px;
-    height: 50px;
-    background: #000;
-    clip-path: polygon(0 0, 100% 0, 60% 30%, 100% 60%, 20% 100%, 40% 60%, 0 30%);
-}
-
-/* Big black bloody eyes */
-.scary-eye {
-    position: absolute;
-    top: 30px;
-    width: 50px;
-    height: 50px;
-    background: #000;
-    border-radius: 50%;
-}
-.scary-eye.left { left: 15px; }
-.scary-eye.right { right: 15px; }
-
-/* Blood dripping from eyes */
-.blood-tear {
-    position: absolute;
-    bottom: -25px;
-    left: 10px;
-    width: 8px;
-    height: 35px;
-    background: #700;
-    border-radius: 4px;
-}
+.crack { position: absolute; top: 0; left: 45%; width: 15px; height: 50px; background: #000; clip-path: polygon(0 0, 100% 0, 60% 30%, 100% 60%, 20% 100%, 40% 60%, 0 30%); }
+.scary-eye { position: absolute; top: 30px; width: 50px; height: 50px; background: #000; border-radius: 50%; }
+.scary-eye.left { left: 15px; } .scary-eye.right { right: 15px; }
+.blood-tear { position: absolute; bottom: -25px; left: 10px; width: 8px; height: 35px; background: #700; border-radius: 4px; }
 .blood-tear.t2 { left: 30px; height: 20px; bottom: -15px; }
-
-/* Scary teeth on top and bottom jaw */
-.scary-teeth {
-    position: absolute;
-    width: 100%;
-    height: 15px;
-    background: repeating-linear-gradient(90deg, transparent, transparent 4px, #aaa 4px, #ccc 8px);
-    clip-path: polygon(0 0, 10% 100%, 20% 0, 30% 100%, 40% 0, 50% 100%, 60% 0, 70% 100%, 80% 0, 90% 100%, 100% 0);
-}
+.scary-teeth { position: absolute; width: 100%; height: 15px; background: repeating-linear-gradient(90deg, transparent, transparent 4px, #aaa 4px, #ccc 8px); clip-path: polygon(0 0, 10% 100%, 20% 0, 30% 100%, 40% 0, 50% 100%, 60% 0, 70% 100%, 80% 0, 90% 100%, 100% 0); }
 .scary-teeth.top { bottom: 0; left: 0; transform: scaleY(-1); }
 .scary-teeth.bottom { top: -10px; left: 0; }
-
-/* Blood dripping down the tall neck/body */
-.body-blood {
-    position: absolute;
-    top: 0;
-    left: 20px;
-    width: 12px;
-    height: 100px;
-    background: #700;
-    border-radius: 0 0 6px 6px;
-    opacity: 0;
-    transition: opacity 0.5s;
-    z-index: 3;
-}
+.body-blood { position: absolute; top: 0; left: 20px; width: 12px; height: 100px; background: #700; border-radius: 0 0 6px 6px; opacity: 0; transition: opacity 0.5s; z-index: 3; }
 .body-blood.b2 { left: 50px; height: 140px; }
-
-.jaw-blood {
-    position: absolute;
-    bottom: -40px;
-    width: 10px;
-    height: 50px;
-    background: #700;
-    border-radius: 5px;
-}
+.jaw-blood { position: absolute; bottom: -40px; width: 10px; height: 50px; background: #700; border-radius: 5px; }
 .jaw-blood.b2 { left: 40px; height: 80px; bottom: -70px; }
 
-@keyframes jawVibrate {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(3px); }
-}
+/* WENDA SCARY MODE (MATCHING THE HORROR IMAGE) */
+.wenda .cleaver { position: absolute; top: 100px; left: -10px; width: 80px; height: 120px; background: linear-gradient(135deg, #aaa, #ddd); border-radius: 5px; border-left: 5px solid #222; transform: rotate(-30deg); opacity: 0; transition: opacity 0.2s; box-shadow: 2px 2px 5px rgba(0,0,0,0.5); z-index: 10; }
+.wenda .cleaver-hole { position: absolute; top: 10px; right: 10px; width: 15px; height: 15px; background: #000; border-radius: 50%; }
+.wenda .cleaver-blood { position: absolute; bottom: 0; left: 0; width: 100%; height: 60px; background: #800; clip-path: polygon(0 100%, 100% 100%, 100% 40%, 80% 80%, 60% 30%, 40% 90%, 20% 50%, 0 60%); }
+.wenda .arm.left .cleaver { transform: rotate(30deg) scaleX(-1); left: -40px; }
+.wenda .arm.right .cleaver { transform: rotate(-30deg); left: -10px; }
+
+.wenda .spring { position: absolute; top: 70px; left: 45px; width: 50px; height: 80px; background: repeating-linear-gradient(0deg, transparent, transparent 5px, #888 5px, #888 10px); border-left: 2px solid #555; border-right: 2px solid #555; opacity: 0; transition: opacity 0.5s; z-index: 3; }
+.wenda .torn-flesh { position: absolute; top: -10px; left: -10px; width: 110px; height: 40px; background: #222; clip-path: polygon(0 100%, 10% 0, 20% 50%, 30% 0, 40% 60%, 50% 0, 60% 50%, 70% 0, 80% 60%, 90% 0, 100% 100%); opacity: 0; }
+
+.jagged-fur { position: absolute; width: 50px; height: 50px; background: #222; z-index: -1; }
+.jagged-fur.f1 { top: -10px; left: -20px; clip-path: polygon(100% 100%, 0 0, 50% 50%, 0 100%); transform: rotate(-20deg); }
+.jagged-fur.f2 { top: 40px; left: -30px; clip-path: polygon(100% 100%, 0 0, 50% 50%, 0 100%); transform: rotate(-40deg); }
+.jagged-fur.f3 { top: -10px; right: -20px; clip-path: polygon(0 100%, 100% 0, 50% 50%, 100% 100%); transform: rotate(20deg); }
+.jagged-fur.f4 { top: 40px; right: -30px; clip-path: polygon(0 100%, 100% 0, 50% 50%, 100% 100%); transform: rotate(40deg); }
+
+.wenda-crack { height: 80px; left: 40%; width: 25px; }
+.wenda-scary-eye { position: absolute; top: 25px; width: 55px; height: 55px; background: #555; border-radius: 50%; border: 3px solid #fff; box-shadow: inset 0 0 15px #000; }
+.wenda-scary-eye.left { left: 10px; } .wenda-scary-eye.right { right: 10px; }
+.wenda-scary-mouth { position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); width: 80px; height: 30px; background: #000; border-radius: 20px; }
+.wenda-scary-mouth::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(90deg, transparent, transparent 5px, #aaa 5px, #ccc 10px); clip-path: polygon(0 0, 100% 0, 100% 20%, 0 20%, 0 80%, 100% 80%, 100% 100%, 0 100%); }
+.head-blood { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at center, transparent 40%, rgba(136,0,0,0.5) 100%); border-radius: 50%; pointer-events: none; }
+
+.wenda.scary-mode .normal-face { opacity: 0; }
+.wenda.scary-mode .scary-face { opacity: 1; }
+.wenda.scary-mode .head { background: #222; transform: translateY(-70px); box-shadow: 0 10px 20px rgba(0,0,0,0.8); animation: headBob 0.5s infinite alternate; }
+.wenda.scary-mode .body { background: #222; }
+.wenda.scary-mode .arm { background: #111; }
+.wenda.scary-mode .cleaver { opacity: 1; }
+.wenda.scary-mode .spring { opacity: 1; }
+.wenda.scary-mode .torn-flesh { opacity: 1; }
+
+@keyframes jawVibrate { 0% { transform: translateY(0); } 100% { transform: translateY(3px); } }
+@keyframes headBob { 0% { transform: translateY(-70px) rotate(-2deg); } 100% { transform: translateY(-60px) rotate(2deg); } }
 
 /* Idle Animations */
 .anim-idle { animation: breatheBody 2s infinite alternate ease-in-out; }
@@ -342,96 +133,18 @@ body {
 @keyframes armIdleR { 0% { transform: rotate(-10deg); } 100% { transform: rotate(-15deg); } }
 
 /* Subtitles */
-.subtitles {
-    position: absolute;
-    bottom: 15vh;
-    width: 100%;
-    text-align: center;
-    color: #fff;
-    font-size: 24px;
-    font-family: 'Courier New', Courier, monospace;
-    text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    z-index: 150;
-    opacity: 0;
-    transition: opacity 0.3s;
-    pointer-events: none;
-}
+.subtitles { position: absolute; bottom: 15vh; width: 100%; text-align: center; color: #fff; font-size: 24px; font-family: 'Courier New', Courier, monospace; text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; z-index: 150; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
 
 /* UI */
-.ui {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 300;
-}
-
-button {
-    padding: 15px 40px;
-    font-size: 24px;
-    background: rgba(0,0,0,0.7);
-    color: #fff;
-    border: 2px solid #fff;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    transition: all 0.3s;
-    font-family: 'Courier New', Courier, monospace;
-}
+.ui { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; z-index: 300; }
+button { padding: 15px 40px; font-size: 24px; background: rgba(0,0,0,0.7); color: #fff; border: 2px solid #fff; cursor: pointer; text-transform: uppercase; letter-spacing: 5px; transition: all 0.3s; font-family: 'Courier New', Courier, monospace; }
 button:hover { background: #fff; color: #000; box-shadow: 0 0 20px #fff; }
 
-.titles {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 150;
-    text-align: center;
-    pointer-events: none;
-    opacity: 0;
-}
-.titles h1 {
-    font-size: 5rem;
-    color: #ff0000;
-    text-shadow: 0 0 20px #ff0000, 2px 2px 0px #fff;
-    letter-spacing: 10px;
-    margin: 0;
-}
+.titles { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 150; text-align: center; pointer-events: none; opacity: 0; }
+.titles h1 { font-size: 5rem; color: #fff; text-shadow: 0 0 20px #ff0000, 2px 2px 0px #000; letter-spacing: 10px; margin: 0; }
 
 /* Effects */
-.impact-flash {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: #fff;
-    z-index: 99;
-    opacity: 0;
-    pointer-events: none;
-}
-
-.clash-effect {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    background: radial-gradient(circle, #fff, transparent);
-    border-radius: 50%;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 0;
-    z-index: 100;
-}
-
-.blood-explosion {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, #800 10%, transparent 70%);
-    border-radius: 50%;
-    z-index: 100;
-    opacity: 0;
-}
+.impact-flash { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #fff; z-index: 99; opacity: 0; pointer-events: none; }
+.clash-effect { position: absolute; width: 150px; height: 150px; background: radial-gradient(circle, #fff, transparent); border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0); opacity: 0; z-index: 100; }
+.blood-explosion { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0); width: 500px; height: 500px; background: radial-gradient(circle, #800 10%, transparent 70%); border-radius: 50%; z-index: 100; opacity: 0; }
+.final-explosion { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0); width: 100vw; height: 100vh; background: radial-gradient(circle, #fff 0%, #f00 40%, #000 100%); z-index: 250; opacity: 0; border-radius: 50%; transition: transform 0.5s ease-out, opacity 1s; mix-blend-mode: screen; pointer-events: none; }

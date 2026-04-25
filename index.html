@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wenda vs Gray - Realistic Brutal Fight</title>
+    <title>Wenda vs Gray - Epic Horror Finale</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,20 +16,49 @@
                 <div class="fog"></div>
                 <div class="fog layer2"></div>
                 <div class="darkness-overlay" id="darkness"></div>
+                <div class="darkness-overlay super" id="superDarkness"></div>
             </div>
 
-            <!-- Wenda (White Cat-like) -->
+            <!-- Wenda (White Cat-like -> Horror Mode) -->
             <div class="character wenda" id="wenda">
-                <div class="arm left"></div>
-                <div class="body"></div>
-                <div class="head">
-                    <div class="ear left"></div>
-                    <div class="ear right"></div>
-                    <div class="eye left"></div>
-                    <div class="eye right"></div>
-                    <div class="mouth"></div>
+                <div class="arm left">
+                    <div class="cleaver">
+                        <div class="cleaver-hole"></div>
+                        <div class="cleaver-blood"></div>
+                    </div>
                 </div>
-                <div class="arm right"></div>
+                <div class="body">
+                    <div class="torn-flesh"></div>
+                </div>
+                <div class="spring"></div>
+                <div class="head">
+                    <!-- Normal Face -->
+                    <div class="normal-face">
+                        <div class="ear left"></div>
+                        <div class="ear right"></div>
+                        <div class="eye left"></div>
+                        <div class="eye right"></div>
+                        <div class="mouth"></div>
+                    </div>
+                    <!-- Scary Face -->
+                    <div class="scary-face">
+                        <div class="jagged-fur f1"></div>
+                        <div class="jagged-fur f2"></div>
+                        <div class="jagged-fur f3"></div>
+                        <div class="jagged-fur f4"></div>
+                        <div class="crack wenda-crack"></div>
+                        <div class="wenda-scary-eye left"></div>
+                        <div class="wenda-scary-eye right"></div>
+                        <div class="wenda-scary-mouth"></div>
+                        <div class="head-blood"></div>
+                    </div>
+                </div>
+                <div class="arm right">
+                    <div class="cleaver">
+                        <div class="cleaver-hole"></div>
+                        <div class="cleaver-blood"></div>
+                    </div>
+                </div>
             </div>
 
             <!-- Gray (Gray Tall Figure) -->
@@ -46,8 +75,7 @@
                         <div class="eye right"></div>
                         <div class="mouth-sad"></div>
                     </div>
-                    
-                    <!-- Scary Face (Matches user image) -->
+                    <!-- Scary Face -->
                     <div class="scary-face">
                         <div class="crack"></div>
                         <div class="scary-eye left">
@@ -58,7 +86,6 @@
                         </div>
                         <div class="scary-teeth top"></div>
                     </div>
-                    
                     <!-- Detached Scary Jaw -->
                     <div class="scary-jaw">
                         <div class="scary-teeth bottom"></div>
@@ -73,6 +100,7 @@
             <div class="impact-flash" id="flash"></div>
             <div class="blood-explosion" id="bloodExplosion"></div>
             <div class="clash-effect" id="clashEffect"></div>
+            <div class="final-explosion" id="finalExplosion"></div>
         </div>
 
         <div class="subtitles" id="subtitles"></div>

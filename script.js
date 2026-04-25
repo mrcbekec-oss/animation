@@ -156,26 +156,62 @@ startBtn.addEventListener('click', async () => {
     
     await sleep(1000);
     
-    // Final Dash!
-    wenda.style.transition = 'left 0.1s linear'; wenda.style.left = '45%';
-    gray.style.transition = 'right 0.1s linear'; gray.style.right = '45%';
-    
-    wenda.querySelector('.arm.left').style.transform = 'rotate(-30deg) scale(1.5)';
-    wenda.querySelector('.arm.right').style.transform = 'rotate(30deg) scale(1.5)';
-    gray.querySelector('.arm.left').style.transform = 'rotate(-30deg) scale(1.5)';
-    gray.querySelector('.arm.right').style.transform = 'rotate(30deg) scale(1.5)';
-    
+    // Final Dash & Extended Clash!
+    wenda.style.transition = 'left 0.1s linear'; wenda.style.left = '40%';
+    gray.style.transition = 'right 0.1s linear'; gray.style.right = '40%';
     await sleep(100);
 
-    // Phase 7: Final Explosion
-    shakeScreen(100, 2000);
-    finalExplosion.style.opacity = '1';
-    finalExplosion.style.transform = 'translate(-50%, -50%) scale(2)';
+    // Rapid clash in scary forms
+    for(let i=0; i<15; i++) {
+        let wHand = (i%2 === 0) ? '.arm.right' : '.arm.left';
+        let gHand = (i%2 !== 0) ? '.arm.right' : '.arm.left';
+        
+        wenda.querySelector(wHand).style.transform = `rotate(${Math.random()*180 - 90}deg) scale(2)`;
+        gray.querySelector(gHand).style.transform = `rotate(${Math.random()*180 - 90}deg) scale(2)`;
+        
+        shakeScreen(25, 100);
+        clashEffect.style.left = '50%'; clashEffect.style.top = (30 + Math.random()*30) + '%';
+        clashEffect.style.opacity = '1';
+        clashEffect.style.transform = `translate(-50%, -50%) scale(${1 + Math.random()})`;
+        clashEffect.style.background = (i%2 === 0) ? 'radial-gradient(circle, #f00, transparent)' : 'radial-gradient(circle, #fff, transparent)';
+        
+        await sleep(120);
+    }
     
-    await sleep(2000);
+    clashEffect.style.opacity = '0';
+
+    // Wenda's Final Strike
+    await typeSubtitle("Wenda: G E B E R !", "#f00", 1500);
     
-    // K.O.
-    titleText.innerText = 'DOUBLE K.O.';
+    wenda.querySelector('.arm.left').style.transform = 'rotate(-150deg) scale(2.5)';
+    wenda.querySelector('.arm.right').style.transform = 'rotate(150deg) scale(2.5)';
+    await sleep(300); // Wind up
+    
+    // Slash!
+    wenda.querySelector('.arm.left').style.transform = 'rotate(-10deg) scale(2.5)';
+    wenda.querySelector('.arm.right').style.transform = 'rotate(10deg) scale(2.5)';
+
+    shakeScreen(100, 1500);
+    bloodExplosion.style.opacity = '1';
+    bloodExplosion.style.background = 'radial-gradient(circle, #f00 10%, transparent 70%)';
+    bloodExplosion.style.transform = 'translate(-50%, -50%) scale(5)';
+    
+    // Gray gets completely destroyed and blown away
+    gray.style.transition = 'all 0.5s ease-out'; 
+    gray.style.right = '-30%'; 
+    gray.style.bottom = '80%';
+    gray.style.transform = 'scaleX(-1) rotate(180deg)';
+
+    await sleep(1500);
+    bloodExplosion.style.opacity = '0';
+    
+    // Wenda stands victorious
+    wenda.querySelector('.arm.left').style.transform = 'rotate(-30deg) scale(1.5)';
+    wenda.querySelector('.arm.right').style.transform = 'rotate(30deg) scale(1.5)';
+    await sleep(1000);
+
+    // K.O. - WENDA WINS
+    titleText.innerText = 'WENDA KAZANDI!';
     titleText.style.color = '#fff';
     titleText.style.textShadow = '0 0 30px #f00, 2px 2px 0px #000';
     titles.style.opacity = '1';

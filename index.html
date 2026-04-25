@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wenda vs Gray - Epic Horror Finale</title>
+    <title>Red Scythe vs Shadow Eye - Epic Animation</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,84 +16,52 @@
                 <div class="fog"></div>
                 <div class="fog layer2"></div>
                 <div class="darkness-overlay" id="darkness"></div>
-                <div class="darkness-overlay super" id="superDarkness"></div>
             </div>
 
-            <!-- Wenda (White Cat-like -> Horror Mode) -->
-            <div class="character wenda" id="wenda">
-                <div class="arm left">
-                    <div class="cleaver">
-                        <div class="cleaver-hole"></div>
-                        <div class="cleaver-blood"></div>
-                    </div>
+            <!-- Red Scythe Character -->
+            <div class="character red-scythe" id="redScythe">
+                <div class="tails">
+                    <div class="tail t1"></div>
+                    <div class="tail t2"></div>
+                    <div class="tail t3"></div>
+                    <div class="tail t4"></div>
+                    <div class="tail t5"></div>
+                    <div class="tail t6"></div>
                 </div>
-                <div class="body">
-                    <div class="torn-flesh"></div>
-                </div>
-                <div class="spring"></div>
+                <div class="arm left"><div class="hand"></div></div>
+                <div class="body"></div>
+                <div class="leg left"></div>
+                <div class="leg right"></div>
                 <div class="head">
-                    <!-- Normal Face -->
-                    <div class="normal-face">
-                        <div class="ear left"></div>
-                        <div class="ear right"></div>
-                        <div class="eye left"></div>
-                        <div class="eye right"></div>
-                        <div class="mouth"></div>
-                    </div>
-                    <!-- Scary Face -->
-                    <div class="scary-face">
-                        <div class="jagged-fur f1"></div>
-                        <div class="jagged-fur f2"></div>
-                        <div class="jagged-fur f3"></div>
-                        <div class="jagged-fur f4"></div>
-                        <div class="crack wenda-crack"></div>
-                        <div class="wenda-scary-eye left"></div>
-                        <div class="wenda-scary-eye right"></div>
-                        <div class="wenda-scary-mouth"></div>
-                        <div class="head-blood"></div>
-                    </div>
+                    <div class="eye"></div>
+                    <div class="cross"></div>
                 </div>
-                <div class="arm right">
-                    <div class="cleaver">
-                        <div class="cleaver-hole"></div>
-                        <div class="cleaver-blood"></div>
-                    </div>
-                </div>
+                <div class="arm right"><div class="hand"></div></div>
             </div>
 
-            <!-- Gray (Gray Tall Figure) -->
-            <div class="character gray" id="gray">
-                <div class="arm left"></div>
-                <div class="body">
-                    <div class="body-blood"></div>
-                    <div class="body-blood b2"></div>
+            <!-- Shadow Eye Character -->
+            <div class="character shadow-eye" id="shadowEye">
+                <div class="body-blob">
+                    <div class="spikes">
+                        <div class="spike s1"></div>
+                        <div class="spike s2"></div>
+                        <div class="spike s3"></div>
+                        <div class="spike s4"></div>
+                    </div>
+                    <div class="giant-eye">
+                        <div class="pupil"></div>
+                        <div class="veins"></div>
+                    </div>
+                    <div class="blood-drip"></div>
                 </div>
-                <div class="head">
-                    <!-- Normal Face -->
-                    <div class="normal-face">
-                        <div class="eye left"></div>
-                        <div class="eye right"></div>
-                        <div class="mouth-sad"></div>
-                    </div>
-                    <!-- Scary Face -->
-                    <div class="scary-face">
-                        <div class="crack"></div>
-                        <div class="scary-eye left">
-                            <div class="blood-tear"></div>
-                        </div>
-                        <div class="scary-eye right">
-                            <div class="blood-tear t2"></div>
-                        </div>
-                        <div class="scary-teeth top"></div>
-                    </div>
-                    <!-- Detached Scary Jaw -->
-                    <div class="scary-jaw">
-                        <div class="scary-teeth bottom"></div>
-                        <div class="jaw-blood"></div>
-                        <div class="jaw-blood b2"></div>
-                    </div>
+                <!-- Floating Hands -->
+                <div class="floating-hand left">
+                    <div class="fingers"></div>
                 </div>
-                <div class="arm right"></div>
+                <div class="floating-hand right">
+                    <div class="fingers"></div>
+                </div>
+                <div class="laser-beam" id="laserBeam"></div>
             </div>
 
             <!-- Effects -->
@@ -108,11 +76,11 @@
         <div class="letterbox bottom"></div>
         
         <div class="ui">
-            <button id="startBtn">FİLMİ BAŞLAT</button>
+            <button id="startBtn">SAVAŞI BAŞLAT</button>
         </div>
         
         <div class="titles" id="titles">
-            <h1 id="titleText">WENDA</h1>
+            <h1 id="titleText">VS</h1>
         </div>
     </div>
     <script src="script.js"></script>

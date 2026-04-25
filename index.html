@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nigmare vs The Dark One - Epic Ball Fight</title>
+    <title>Wenda vs Gray - Brutal Fight</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,43 +15,65 @@
                 <div class="moon"></div>
                 <div class="fog"></div>
                 <div class="fog layer2"></div>
+                <div class="darkness-overlay" id="darkness"></div>
             </div>
 
-            <!-- Nigmare -->
-            <div class="character nigmare" id="nigmare">
-                <div class="aura" id="nigmareAura"></div>
+            <!-- Wenda (White) -->
+            <div class="character wenda" id="wenda">
+                <div class="aura" id="wendaAura"></div>
                 <div class="ball">
                     <div class="ear left"></div>
                     <div class="ear right"></div>
                     <div class="eye left"><div class="pupil">c</div></div>
                     <div class="eye right"><div class="pupil">c</div></div>
                     <div class="mouth"></div>
-                    <div class="blood-splatter b1"></div>
-                    <div class="blood-splatter b2"></div>
                 </div>
                 <div class="hand left"></div>
                 <div class="hand right"></div>
-                <div class="beam" id="nigmareBeam"></div>
             </div>
 
-            <!-- Dark One -->
-            <div class="character dark-one" id="darkOne">
-                <div class="aura" id="darkOneAura"></div>
+            <!-- Gray (Gray) -->
+            <div class="character gray" id="gray">
+                <div class="aura" id="grayAura"></div>
                 <div class="ball">
-                    <div class="ear left"></div>
-                    <div class="ear right"></div>
-                    <div class="eye left"><div class="pupil"></div><div class="bag"></div></div>
-                    <div class="eye right"><div class="pupil"></div><div class="bag"></div></div>
-                    <div class="mouth-sad"></div>
+                    <!-- Normal Face Elements -->
+                    <div class="normal-face">
+                        <div class="ear left"></div>
+                        <div class="ear right"></div>
+                        <div class="eye left"><div class="pupil"></div><div class="bag"></div></div>
+                        <div class="eye right"><div class="pupil"></div><div class="bag"></div></div>
+                        <div class="mouth-sad"></div>
+                    </div>
+                    
+                    <!-- Scary Transformation Elements (Hidden by default) -->
+                    <div class="scary-face">
+                        <div class="crack"></div>
+                        <div class="scary-eye left">
+                            <div class="blood-tear"></div>
+                            <div class="blood-tear t2"></div>
+                        </div>
+                        <div class="scary-eye right">
+                            <div class="blood-tear"></div>
+                        </div>
+                        <div class="scary-teeth top"></div>
+                    </div>
                 </div>
+                
+                <!-- Scary Detached Jaw -->
+                <div class="scary-jaw">
+                    <div class="scary-teeth bottom"></div>
+                    <div class="jaw-blood"></div>
+                    <div class="jaw-blood b2"></div>
+                    <div class="jaw-blood b3"></div>
+                </div>
+
                 <div class="hand left"></div>
                 <div class="hand right"></div>
-                <div class="beam" id="darkOneBeam"></div>
             </div>
 
             <!-- Effects -->
             <div class="impact-flash" id="flash"></div>
-            <div class="explosion" id="explosion"></div>
+            <div class="blood-explosion" id="bloodExplosion"></div>
             <div class="clash-effect" id="clashEffect"></div>
         </div>
 
@@ -64,7 +86,7 @@
         </div>
         
         <div class="titles" id="titles">
-            <h1 id="titleText">NIGMARE</h1>
+            <h1 id="titleText">WENDA</h1>
         </div>
     </div>
     <script src="script.js"></script>

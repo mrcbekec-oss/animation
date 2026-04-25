@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nigmare vs The Dark One - Cinematic Fight</title>
+    <title>Nigmare vs The Dark One - Epic Ball Fight</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,7 +19,8 @@
 
             <!-- Nigmare -->
             <div class="character nigmare" id="nigmare">
-                <div class="head">
+                <div class="aura" id="nigmareAura"></div>
+                <div class="ball">
                     <div class="ear left"></div>
                     <div class="ear right"></div>
                     <div class="eye left"><div class="pupil">c</div></div>
@@ -28,33 +29,33 @@
                     <div class="blood-splatter b1"></div>
                     <div class="blood-splatter b2"></div>
                 </div>
-                <div class="body">
-                    <div class="blood-splatter b3"></div>
-                    <div class="blood-splatter b4"></div>
-                    <div class="arm left"></div>
-                    <div class="arm right"></div>
-                </div>
+                <div class="hand left"></div>
+                <div class="hand right"></div>
+                <div class="beam" id="nigmareBeam"></div>
             </div>
 
-            <!-- Other Character -->
+            <!-- Dark One -->
             <div class="character dark-one" id="darkOne">
-                <div class="head">
+                <div class="aura" id="darkOneAura"></div>
+                <div class="ball">
                     <div class="ear left"></div>
                     <div class="ear right"></div>
                     <div class="eye left"><div class="pupil"></div><div class="bag"></div></div>
                     <div class="eye right"><div class="pupil"></div><div class="bag"></div></div>
                     <div class="mouth-sad"></div>
                 </div>
-                <div class="body">
-                    <div class="arm left"></div>
-                    <div class="arm right"></div>
-                </div>
+                <div class="hand left"></div>
+                <div class="hand right"></div>
+                <div class="beam" id="darkOneBeam"></div>
             </div>
 
             <!-- Effects -->
             <div class="impact-flash" id="flash"></div>
-            <div class="particles" id="particles"></div>
+            <div class="explosion" id="explosion"></div>
+            <div class="clash-effect" id="clashEffect"></div>
         </div>
+
+        <div class="subtitles" id="subtitles"></div>
 
         <div class="letterbox bottom"></div>
         
